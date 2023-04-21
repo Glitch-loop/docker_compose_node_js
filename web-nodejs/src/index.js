@@ -1,12 +1,10 @@
-require('dotenv').config()
-
 const express = require('express')
 const path = require('path');
 const exphbs = require('express-handlebars');
 const session = require('express-session');
 var passport = require('passport');
 const MySQLStore = require('express-mysql-session');
-const helpers = require('../class/src/lib/helpers');
+
 
 // Initializations
 const app = express();
@@ -29,10 +27,10 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     store: new MySQLStore({
-        host: process.env.DB_HOST,
-        user: process.env.DB_USER,
-        password: process.env.DB_PASSWORD,
-        database: process.env.DB_NAME
+        host: process.env.MYSQL_HOST || '127.0.0.1',
+        user: process.env.MYSQL_USER || 'root',
+        password: process.env.MYSQL_ROOT_PASSWORD || 'itesm',
+        database: process.env.MYSQL_DATABASE || 'test_databas'
     })
 }));
 app.use(passport.initialize());
@@ -42,35 +40,6 @@ app.use(passport.authenticate('session'));
 app.use(require('./routes'))
 app.use(require('./routes/authentication'))
 
-//Helpers
-const hbs = exphbs.create({
-    // Specify helpers which are only registered on this instance.
-    helpers: {
-        foo() { return 'FOO!'; },
-        bar() { return 'BAR!'; }
-    }
-})
-
-// app.get('/', (req, res) => {
-//     res.render('home', {
-//         showTitle: true,
-//         data: "hola mundo",
-//         person: {
-//             firstName: 'Yehuda',
-//             lastName: 'Katz'
-//         },
-//         verbs: ["run", "swim", "jump"],
-//         dataComment: "itMustBeCommnet",
-//         helpers: {
-//             foo() {return 'foo.'},
-//             bar() {return 'bar.'}
-//         }
-//     });
-
-// })
-
-// Public
-// app.use(express.static(path.join(__dirname, 'public')));
 
 // Starting the server
 
