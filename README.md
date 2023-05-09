@@ -11,7 +11,7 @@ Implementación de un servidor web basada en la API de Rick & Morty, las tecnolo
 
 - Passport 
 - MySQL 
-- Dockers
+- Docker
 - Handlebars
 - Express
 - NodeJS
@@ -40,8 +40,8 @@ Ejecturar: `docker-compose up`
 ```
 
 ## Notas
+- Tener docker y mysql instalado (para el caso de docker si se esta haciendo en terminal, instalar el *motor docker* y *docker-compose*)
+ 
 - Tener libre el puerto 3306, para la ejecución del servidor de MySQL.
 
 - En caso de que el servicio de _"web-nodejs"_ tenga problemas para conectarse con la base de datos, reiniciar el servicio de _"web-nodejs"_ (procurar hacerlo cuando el servicio de MySQL termine de ejecutarse).
-
-- Tener docker instalado 
