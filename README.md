@@ -1,13 +1,15 @@
 # Docker Compose & NodeJS
-## Integrantes de equipo
+## Team members
 - Karla González Sánchez | A01541526
 - Renet de Jesús Pérez | A01640555
 - Axel Hernández Montes de Oca | A01369965
 - Ivan Ortega Sotomayor | A01383282 
 - Lucas Wong Mang | A01639032
 
-## Descripción del proyecto
-Implementación de un servidor web basada en la API de Rick & Morty, las tecnologias que utilizamos para poder hacer este proyecto:
+## Project description
+Implementation of a web application based on the Rick & Morty API.
+
+Technologies used to carry out this project:
 
 - Passport 
 - MySQL 
@@ -16,19 +18,19 @@ Implementación de un servidor web basada en la API de Rick & Morty, las tecnolo
 - Express
 - NodeJS
 
-La forma de autenticación la hicimos por medio de la estrategia de Passport de: _passport-google-oauth_.
+We did the authentication through the Passport strategy: *passport-google-oauth*
 
-# ¿Como correr el servidor?
+# How to build and run the server?
 Ejecturar: `docker-compose up`
 
-## Variables de entorno 
-### mysql-database
+## Enviroment variables
+### mysql-database service
 ```
     MYSQL_ROOT_PASSWORD: <Your_root_password>
     MYSQL_DATABASE: <Your_database>
 ```
     
-### web-nodejs
+### web-nodejs service
 ```
     MYSQL_DATABASE: <Your_database>
     MYSQL_USER: <Your_user>
@@ -39,9 +41,9 @@ Ejecturar: `docker-compose up`
     PORT: 3000
 ```
 
-## Notas
-- Tener docker y mysql instalado (para el caso de docker si se esta haciendo en terminal, instalar el *motor docker* y *docker-compose*)
- 
-- Tener libre el puerto 3306, para la ejecución del servidor de MySQL.
+## Notes
+- Have **docker** and **mysql** installed (if you are using the Ubuntu operating system, you will need to install *docker engine* and *docker-compose*).
 
-- En caso de que el servicio de _"web-nodejs"_ tenga problemas para conectarse con la base de datos, reiniciar el servicio de _"web-nodejs"_ (procurar hacerlo cuando el servicio de MySQL termine de ejecutarse).
+- Have port 3306 free, to run the Mysql server with `docker-compose up`
+
+- If *web-nodejs* has problems connecting to the database, restart it (check for *mysql-database service* already terminated).
